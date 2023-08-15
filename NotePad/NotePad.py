@@ -4,16 +4,8 @@ NotePad
 import sys
 import os
 
-from PyQt5.QtWidgets import QWidget, QApplication, QTextEdit, QLabel, QPushButton, QVBoxLayout, QFileDialog, QHBoxLayout,QAction,qApp,QMainWindow
-
-class Menu(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        menu_bar = self.menuBar()
-
-        folder = menu_bar.addMenu("Folder")
-        bearbeiten = menu_bar.addMenu("Bearbeiten")
+from PyQt5.QtWidgets import QWidget, QApplication, QTextEdit, QLabel, QPushButton, QVBoxLayout, QFileDialog, QHBoxLayout
+from PyQt5.QtWidgets import QAction, qApp, QMainWindow
 
 
 class Notepad(QWidget):
@@ -52,8 +44,7 @@ class Notepad(QWidget):
         self.text_in.clear()
 
     def folder_open(self):
-        folder_name = QFileDialog.getOpenFileName(self, "Öffnen",
-                                                  os.getenv("Desktop"))
+        folder_name = QFileDialog.getOpenFileName(self, "Öffnen", os.getenv("Desktop"))
 
         with open(folder_name[0], "r") as file:
             self.text_in.setText(file.read())
@@ -63,6 +54,16 @@ class Notepad(QWidget):
 
         with open(folder_name[0], "w") as file:
             file.write(self.text_in.toPlainText())
+
+
+class Menu(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        menu_bar = self.menuBar()
+
+        folder = menu_bar.addMenu("Folder")
+        bearbeiten = menu_bar.addMenu("Bearbeiten")
 
         self.show()
 
