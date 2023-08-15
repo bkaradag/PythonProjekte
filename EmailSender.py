@@ -1,3 +1,6 @@
+"""
+Email Sender
+"""
 import sys
 import smtplib
 from email.mime.multipart import MIMEMultipart
