@@ -53,16 +53,16 @@ class Notepad(QWidget):
 
     def folder_open(self):
         folder_name = QFileDialog.getOpenFileName(self, "Öffnen",
-                                                  os.getenv("Desktop"))  # bilgiyarin yolunu söyler os.getenv
+                                                  os.getenv("Desktop"))
 
         with open(folder_name[0], "r") as file:
-            self.text_in.setText(file.read())  # dosyanin icindekileri komple yazdirir.
+            self.text_in.setText(file.read())
 
     def data_save(self):
         folder_name = QFileDialog.getSaveFileName(self, "Speichern", os.getenv("Desktop"))
 
         with open(folder_name[0], "w") as file:
-            file.write(self.text_in.toPlainText())  # tüm yazilari alip dosyaaya ekler.
+            file.write(self.text_in.toPlainText())
 
         self.show()
 

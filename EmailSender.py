@@ -96,7 +96,7 @@ class Window(QWidget):
             text3 = "Sehr geehrte Damen und Herren,\n"
             text4 = "\nMit freundlichen Grüßen\n Berkay Karadag"
 
-            # markierte_tage = [] TODO: buraya bakilmasi gerekiyor. Secilen günleri de mail metnine eklemesi gerekiyor.
+            # markierte_tage = []
             #
             # if self.checkbox.isChecked():
             #     markierte_tage.append(self.checkbox.text())
@@ -120,7 +120,7 @@ class Window(QWidget):
             mail = smtplib.SMTP("smtp.gmail.com", 587)
             mail.ehlo()
             mail.starttls()
-            mail.login("bk6991@gmail.com", "vosjyyoovzbvmous")
+            mail.login("", "") # Gmail und Passwort
             mail.sendmail(msg["From"], msg["To"], msg.as_string())
 
             print("Mail wurde erfolgreich gesendet!")
