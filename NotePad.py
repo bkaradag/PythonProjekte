@@ -1,3 +1,6 @@
+"""
+NotePad
+"""
 import sys
 import os
 
