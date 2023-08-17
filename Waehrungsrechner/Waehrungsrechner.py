@@ -22,7 +22,7 @@ print(list_kurs)
 
 print("""***********
 
-DÖVİZ UYGULAMASI
+Waehrungsrechner
 
 Auswahl:
 
