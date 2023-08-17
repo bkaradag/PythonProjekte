@@ -34,6 +34,7 @@ class Notepad(QWidget):
         v_box.addLayout(h_box)
 
         self.setLayout(v_box)
+
         self.setWindowTitle("NotePad")
 
         self.erase.clicked.connect(self.clear_text)
@@ -60,12 +61,50 @@ class Menu(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.fenster = Notepad()
+
+        self.setCentralWidget(self.fenster)
+
+        self.menu_erstellen()
+
+    def menu_erstellen(self):
+
         menu_bar = self.menuBar()
 
         folder = menu_bar.addMenu("Folder")
+
+        folder_open = QAction("Öffnen",self)
+        folder_open.setShortcut("Ctrl+O")
+
+        data_save = QAction("Speichern",self)
+        data_save.setShortcut("Ctrl+S")
+
+        clear_text = QAction("Löschen",self)
+        clear_text.setShortcut("Ctrl+D")
+
+        exit = QAction("Beenden",self)
+        exit.setShortcut("Ctrl+Q")
+
+        folder.addAction(folder_open)
+        folder.addAction(data_save)
+        folder.addAction(clear_text)
+        folder.addAction(exit)
+
+        folder.triggered.connect(self.response)
+
         bearbeiten = menu_bar.addMenu("Bearbeiten")
 
         self.show()
+
+    def response(self,action):
+        if action.text() == "Öffnen":
+            self.fenster.folder_open()
+        elif action.text() == "Speichern":
+            self.fenster.data_save()
+        elif action.text() == "Löschen":
+            self.fenster.clear_text()
+        elif action.text() == "Beenden":
+            qApp.quit()
 
 
 app = QApplication(sys.argv)
