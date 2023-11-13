@@ -1,3 +1,4 @@
+import os.path
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QVBoxLayout, QPushButton, QTextEdit, QListWidget, QLabel, QWidget, QLineEdit, QHBoxLayout
 from PyQt5.QtGui import QPixmap
@@ -44,7 +45,7 @@ class PDFReaderApp(QMainWindow):
         right_layout.addWidget(self.text_result)
         right_layout.addWidget(self.a_values_textedit)
 
-        load_button = QPushButton("PDF File", self)
+        load_button = QPushButton("Select Folder", self)
         load_button.clicked.connect(self.load_pdf_files)
         right_layout.addWidget(load_button)
 
