@@ -20,6 +20,9 @@ class PDFReaderApp(QMainWindow):
         self.setCentralWidget(self.central_widget)
 
         self.file_list_widget = QListWidget(self)
+        self.text_pdf = QLabel("PDF Files: ")
+        self.text_value_search = QLabel("Search Value: ")
+        self.text_result = QLabel("Result: ")
         self.pdf_preview_label = QLabel(self)
         self.a_values_textedit = QTextEdit(self)
         self.a_values_textedit.setReadOnly(True)
@@ -33,8 +36,12 @@ class PDFReaderApp(QMainWindow):
         main_layout.addLayout(left_layout)
         main_layout.addLayout(right_layout)
 
+        right_layout.addWidget(self.text_pdf)
         right_layout.addWidget(self.file_list_widget)
+
+        right_layout.addWidget(self.text_value_search)
         right_layout.addWidget(self.a_input)
+        right_layout.addWidget(self.text_result)
         right_layout.addWidget(self.a_values_textedit)
 
         load_button = QPushButton("PDF Path", self)
