@@ -44,11 +44,11 @@ class PDFReaderApp(QMainWindow):
         right_layout.addWidget(self.text_result)
         right_layout.addWidget(self.a_values_textedit)
 
-        load_button = QPushButton("PDF Path", self)
+        load_button = QPushButton("PDF File", self)
         load_button.clicked.connect(self.load_pdf_files)
         right_layout.addWidget(load_button)
 
-        search_button = QPushButton("Search", self)
+        search_button = QPushButton("Search Value", self)
         search_button.clicked.connect(self.search_a_values)
         right_layout.addWidget(search_button)
 
@@ -59,7 +59,7 @@ class PDFReaderApp(QMainWindow):
 
 
     def load_pdf_files(self):
-        pdf_dir = QFileDialog.getExistingDirectory(self, "PDF Dosyalarının Bulunduğu Dizini Seç")
+        pdf_dir = QFileDialog.getExistingDirectory(self, "Select File")
 
         if pdf_dir:
             self.file_list_widget.clear()
